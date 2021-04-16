@@ -1,0 +1,12 @@
+
+<ol>
+  <% if @users.count.zero? %>
+    <li>
+      No users added!
+      <%= link_to "Find User", new_user_path %>
+    </li>
+  <% end %>
+  <% @users.each do |user| %>
+    <li><%= user.name %></li>
+  <% end %>
+</ol>
