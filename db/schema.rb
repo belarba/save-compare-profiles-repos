@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2021_04_16_204904) do
   enable_extension "plpgsql"
 
   create_table "repos", id: :integer, default: nil, force: :cascade do |t|
+    t.bigint "user_id"
     t.string "node_id"
     t.string "name"
     t.string "full_name"
@@ -87,6 +88,7 @@ ActiveRecord::Schema.define(version: 2021_04_16_204904) do
     t.string "license_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_repos_on_user_id"
   end
 
   create_table "users", id: :integer, default: nil, force: :cascade do |t|
@@ -123,4 +125,5 @@ ActiveRecord::Schema.define(version: 2021_04_16_204904) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "repos", "users"
 end

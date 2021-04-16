@@ -3,6 +3,7 @@ class CreateRepos < ActiveRecord::Migration[6.0]
     create_table :repos, { id: false } do |t|
 
       t.integer :id, primary_key: true, default: nil
+      t.references :user, foreign_key: true
       t.string :node_id
       t.string :name
       t.string :full_name
