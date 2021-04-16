@@ -3,7 +3,7 @@
   <% if @users.count.zero? %>
     <li>
       No users added!
-      <%= link_to "Find User", new_user_path %>
+      <%= link_to "Add User", fetch_users_path %>
     </li>
   <% end %>
   <% @users.each do |user| %>

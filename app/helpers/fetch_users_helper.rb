@@ -1,0 +1,2 @@
+module FetchUsersHelper
+end
