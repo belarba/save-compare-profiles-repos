@@ -15,8 +15,7 @@ ActiveRecord::Schema.define(version: 2021_04_16_200302) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "users", force: :cascade do |t|
-    t.integer "git_id"
+  create_table "users", id: :integer, default: nil, force: :cascade do |t|
     t.string "login"
     t.string "node_id"
     t.string "avatar_url"

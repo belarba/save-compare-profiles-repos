@@ -1,8 +1,8 @@
 class CreateUsers < ActiveRecord::Migration[6.0]
   def change
-    create_table :users  do |t|
+    create_table :users, { id: false }  do |t|
 
-      t.integer :git_id
+      t.integer :id, primary_key: true, default: nil
       t.string :login
       t.string :node_id
       t.string :avatar_url
