@@ -22,6 +22,6 @@ class ReposController < ApplicationController
   end
 
   def show
-    @user = Repo.find_by_id(params[:id])
+    @repo = Repo.find_by_id(params[:id])
   end
 end

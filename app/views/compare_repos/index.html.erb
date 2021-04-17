@@ -1,3 +1,20 @@
-<%= @repo1.name%> x <%= @repo2.name%>
+<div style="text-align:center">
+  <div class="row">
+    <h4 class="grey_title">Repositories comparation</h4>
+  </div>
 
-<%= link_to "Home", root_path, class: 'btn btn-primary new-item no-label' %>
+  <div class="center_presentation">
+    <div class="col-xs-3">
+      <div class="form wrapper">
+        <%= render partial: "repos/profile", locals: { repo: @repo1 }%>
+      </div>
+    </div>
+
+    <div class="col-xs-3">
+      <div class="form wrapper">
+        <%= render partial: "repos/profile", locals: { repo: @repo2 }%>
+      </div>
+    </div>
+  </div>
+  <%= link_to "Home", root_path, class: 'btn btn-primary new-item no-label' %>
+</div>

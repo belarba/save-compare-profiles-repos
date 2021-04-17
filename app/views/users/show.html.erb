@@ -1,15 +1,11 @@
 <div class="center_presentation">
   <div class="col-xs-4">
-    <div class="form wrapper">
-      <div class="row">
-        <h4 class="grey_title">Profile info</h4>
-      </div>
-      <div class="blocks-list list-panel panel panel-default">
-        <div class="form_content">
-          <%= render partial: "profile", locals: { user: @user }%>
-          <%= link_to "Home", root_path, class: 'btn btn-primary new-item no-label' %>
-        </div>
-      </div>
+    <div class="row">
+      <h4 class="grey_title">Profile info</h4>
+    </div>
+    <div class="form wrapper" style="text-align:center">
+      <%= render partial: "profile", locals: { user: @user }%>
+      <%= link_to "Home", root_path, class: 'btn btn-primary new-item no-label' %>
     </div>
   </div>
 </div>

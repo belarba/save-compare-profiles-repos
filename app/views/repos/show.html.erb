@@ -1,3 +1,11 @@
-<%= @user %>
-
-<%= link_to "Home", root_path, class: 'btn btn-primary new-item no-label' %>
+<div class="center_presentation">
+  <div class="col-xs-4">
+    <div class="row">
+      <h4 class="grey_title">Repo info</h4>
+    </div>
+    <div class="form wrapper" style="text-align:center">
+      <%= render partial: "profile", locals: { repo: @repo }%>
+      <%= link_to "Home", root_path, class: 'btn btn-primary new-item no-label' %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="blocks-list list-panel panel panel-default">
+  <div class="form_content">
+    <div style="text-align: center;">
+      <p><b>Owner:</b> <%= link_to repo.user.login, repo.user.html_url, target: '_blank' %></p>
+      <p><b>Name:</b> <%= link_to repo.name, repo.html_url, target: '_blank' %></p>
+      <p><b>Size:</b> <%= repo.size %></p>
+      <p><b>Stars:</b> <%= repo.stargazers_count %></p>
+      <p><b>Watchers:</b> <%= repo.watchers %></p>
+      <p><b>Forks:</b> <%= repo.forks %></p>
+      <p><b>Language:</b> <%= repo.language %></p>
+      <p><b>License:</b> <%= repo.license_name %></p>
+      <p><b>Description:</b> <%= repo.description %></p>
+    </div>
+  </div>
+</div>
