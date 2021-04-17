@@ -6,7 +6,7 @@
     </li>
   <% end %>
   <% @users.each do |user| %>
-    <li><%= user.name %></li>
+    <li><%= user.login %></li>
   <% end %>
   <%= link_to "Find User", fetch_users_path %>
 </ol>
@@ -18,7 +18,7 @@
     </li>
   <% end %>
   <% @repos.each do |repo| %>
-    <li><%= "#{repo.user.name} - #{repo.name}" %></li>
+    <li><%= "#{repo.user.login} - #{repo.name}" %></li>
   <% end %>
   <%= link_to "Find Repo", fetch_repos_path %>
 </ol>

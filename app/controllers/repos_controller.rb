@@ -1,10 +1,10 @@
 class ReposController < ApplicationController
   def create
-    user_info = params[:repo_data]['owner']
+    user_info = params[:repo_data]['owner'].to_enum.to_h
 
-    user = User.find(user_info['id'].to_i)
+    user = User.find_or_create_by(id: user_info['id'].to_i)
 
-    user = User.create(user_info.to_enum.to_h) if user.blank?
+    user.update!(user_info.except("id")) if user.login.blank?
 
     repo_info = params[:repo_data].to_enum.to_h
 
