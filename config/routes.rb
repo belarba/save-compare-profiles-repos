@@ -13,4 +13,9 @@ Rails.application.routes.draw do
   resources :fetch_repos, only: [:index, :new] do
   end
 
+  resources :compare_users, only: [:index] do
+  end
+
+  resources :compare_repos, only: [:index] do
+  end
 end
