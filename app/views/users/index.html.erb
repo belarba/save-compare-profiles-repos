@@ -10,3 +10,15 @@
   <% end %>
   <%= link_to "Find User", fetch_users_path %>
 </ol>
+
+<ol>
+  <% if @repos.count.zero? %>
+    <li>
+      No repos added!
+    </li>
+  <% end %>
+  <% @repos.each do |repo| %>
+    <li><%= repo.name %></li>
+  <% end %>
+  <%= link_to "Find Repo", fetch_repos_path %>
+</ol>

@@ -1,0 +1,5 @@
+<%= form_with url: new_fetch_repo_url, local: true, method: :get do |form| %>
+  <%= form.label :user_name, "Enter user name:" %>
+  <%= form.text_field :user_name %>
+  <%= form.submit "Search" %>
+<% end %>
