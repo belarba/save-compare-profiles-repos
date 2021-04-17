@@ -1,5 +1,5 @@
 
-<%= form_with url: compare_repos_path, local: true, method: :get do |form| %>
+<%= form_with url: compare_repos_path, local: true, method: :get, :html=> {:id => 'repos_form'} do |form| %>
   <ol>
     <% if @repos.count.zero? %>
       <li>
@@ -7,7 +7,7 @@
       </li>
     <% end %>
     <% @repos.each do |repo| %>
-      <li><%= check_box_tag 'repos_ids[]', repo.id %><%= "#{repo.user.login} - #{repo.name}" %></li>
+      <li><%= check_box_tag 'repos_ids[]', repo.id, false, class: "repo-checkbox" %><%= "#{repo.user.login} - #{repo.name}" %></li>
     <% end %>
     <%= link_to "Find Repo", fetch_repos_path %>
   </ol>

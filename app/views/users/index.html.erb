@@ -1,18 +1,54 @@
-
-<%= form_with url: compare_users_path, local: true, method: :get do |form| %>
-  <ol>
-    <% if @users.count.zero? %>
-      <li>
-        No users added!
-      </li>
-    <% end %>
-    <% @users.each do |user| %>
-      <li><%= check_box_tag 'users_ids[]', user.id %><%= user.login %></li>
-    <% end %>
-    <%= link_to "Find User", fetch_users_path %>
-  </ol>
-  <%= form.submit "Compare Users" %>
+<%= form_with url: compare_users_path, local: true, method: :get, :html=> {:id => 'users_form'} do |form| %>
+<ol>
+  <% if @users.count.zero? %>
+  <li>
+    No users added!
+  </li>
+  <% end %>
+  <% @users.each do |user| %>
+  <li><%= check_box_tag 'users_ids[]', user.id, false, class: "user-checkbox" %><%= user.login %></li>
+  <% end %>
+  <%= link_to "Find User", fetch_users_path %>
+</ol>
+<%= form.submit "Compare Users" %>
 <% end %>
 
 
 <%= render partial: "repos/index", locals: { repos: @repos } %>
+
+<script>
+  $(document).ready(function() {
+    var limit = 2;
+
+    $('input.user-checkbox').on('change', function(evt) {
+      if ($('input.user-checkbox[type=checkbox]:checked').length > limit) {
+        $(this).prop('checked', false);
+        alert("You can only compare 2 Users");
+      }
+    });
+
+    $('input.repo-checkbox').on('change', function(evt) {
+      if ($('input.repo-checkbox[type=checkbox]:checked').length > limit) {
+        $(this).prop('checked', false);
+        alert("You can only compare 2 Repos");
+      }
+    });
+
+    $('#users_form').on('submit', function(e) {
+      if ($('input.user-checkbox[type=checkbox]:checked').length != limit) {
+        e.preventDefault();
+        alert('You need select 2 Users to compare')
+        return false;
+      }
+    });
+
+    $('#repos_form').on('submit', function(e) {
+      if ($('input.repo-checkbox[type=checkbox]:checked').length != limit) {
+        e.preventDefault();
+        alert('You need select 2 Repos to compare')
+        return false;
+      }
+    });
+
+  });
+</script>
