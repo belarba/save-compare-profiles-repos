@@ -3,8 +3,9 @@ class FetchReposController < ApplicationController
   end
 
   def new
-    base_url = 'https://api.github.com/users/'
-		response = RestClient.get base_url + params[:user_name] + '/repos'
+    base_url = Repo.api_path
+    get_url = base_url + params[:user_name] + '/repos'
+		response = RestClient.get(get_url){|response, request, result| response }
 		@repos = JSON.parse(response)
   end
 end
