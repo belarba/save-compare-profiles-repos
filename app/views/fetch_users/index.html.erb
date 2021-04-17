@@ -1,7 +1,14 @@
-<%= form_with url: new_fetch_user_url, local: true, method: :get do |form| %>
-  <%= form.label :user_name, "Search for:" %>
-  <%= form.text_field :user_name %>
-  <%= form.submit "Search", class: 'btn btn-primary new-item no-label' %>
-<% end %>
-
-<%= link_to "Home", root_path, class: 'btn btn-primary new-item no-label' %>
+<div class="center_presentation">
+  <div class="col-xs-4">
+    <div class="form wrapper">
+      <div class="row">
+        <h4 class="grey_title">Users</h4>
+      </div>
+      <div class="blocks-list list-panel panel panel-default">
+        <%= form_with url: new_fetch_user_url, local: true, method: :get do |form| %>
+          <%= render partial: "search_user", locals: { form: form }%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
