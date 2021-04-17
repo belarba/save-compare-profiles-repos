@@ -1,19 +1,33 @@
-<%= form_with url: compare_users_path, local: true, method: :get, :html=> {:id => 'users_form'} do |form| %>
-  <% if @users.count.zero? %>
-    <p>No users added!</p>
-  <% end %>
-  <% @users.each do |user| %>
-    <p>
-      <%= check_box_tag 'users_ids[]', user.id, false, class: "user-checkbox" %>
-      <%= link_to "#{user.login.capitalize}", user_path(user) %>
-    </p>
-  <% end %>
-  <%= link_to "Find User", fetch_users_path, class: 'btn btn-primary new-item no-label' %>
-  <%= form.submit "Compare Users", class: 'btn btn-primary new-item no-label' %>
-<% end %>
+<div class="center_presentation">
+  <div class="col-xs-4">
+    <div class="form wrapper">
+      <div class="row">
+        <h4 class="grey_title">Users</h4>
+      </div>
+      <div class="blocks-list list-panel panel panel-default">
+        <%= form_with url: compare_users_path, local: true, method: :get, :html=> {:id => 'users_form'} do |form| %>
+          <div class="form_content">
+            <%= link_to "Add New User", fetch_users_path, class: 'btn btn-primary new-item no-label' %>
+            <%= form.submit "Compare Users", class: 'btn btn-primary new-item no-label' %>
+            <div class="list_items">
+              <% if @users.count.zero? %>
+                <p>No users added!</p>
+              <% end %>
+              <% @users.each do |user| %>
+                <p>
+                  <%= check_box_tag 'users_ids[]', user.id, false, class: "user-checkbox" %>
+                  <%= link_to "#{user.login.capitalize}", user_path(user) %>
+                </p>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-
-<%= render partial: "repos/index", locals: { repos: @repos } %>
+  <%= render partial: "repos/index", locals: { repos: @repos } %>
+</div>
 
 <script>
   $(document).ready(function() {
