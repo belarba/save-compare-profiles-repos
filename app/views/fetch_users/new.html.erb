@@ -1,12 +1,28 @@
 
-
-<% if @code == 200 %>
-  <%= @repos["login"] %>
-  <%= @repos["name"] %>
-<% else %>
-  <p>User not found</p>
-<% end %>
-<%= link_to "Save user", users_path(user_data: @repos), method: :post, class: 'btn btn-primary new-item no-label' if @code == 200 %>
-<%= link_to "Back", :back, class: 'btn btn-primary new-item no-label' %>
-<%= link_to "Home", root_path, class: 'btn btn-primary new-item no-label' %>
-
+<div class="center_presentation">
+  <div class="col-xs-4">
+    <div class="form wrapper">
+      <div class="row">
+        <h4 class="grey_title">Search result</h4>
+      </div>
+      <div class="blocks-list list-panel panel panel-default">
+        <div class="form_content">
+          <div style="text-align: center;">
+            <% if @code == 200 %>
+              <p><b>Login:</b> <%= @repos["login"] %></p>
+              <p><b>Name:</b> <%= @repos["name"].capitalize %></p>
+              <p> <img src=<%= @repos["avatar_url"] %> alt=<%= "#{@repos["login"]}_profile_picture" %> class="avatar"> </p>
+            <% else %>
+              <p>User not found</p>
+            <% end %>
+            <div class="buttons_row">
+              <%= link_to "Save user", users_path(user_data: @repos), method: :post, class: 'btn btn-primary new-item no-label' if @code == 200 %>
+              <%= link_to "Back", :back, class: 'btn btn-primary new-item no-label' %>
+              <%= link_to "Home", root_path, class: 'btn btn-primary new-item no-label' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
