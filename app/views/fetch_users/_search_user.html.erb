@@ -1,10 +1,20 @@
 <div class="form_content">
   <div>
     <%= form.label :user_name, "User name:" %>
-    <%= form.text_field :user_name %>
+    <%= form.text_field :user_name, style: "width:100%;" %>
   </div>
   <div class="buttons_row">
     <%= form.submit "Search", class: 'btn btn-primary new-item no-label' %>
     <%= link_to "Home", root_path, class: 'btn btn-primary new-item no-label' %>
   </div>
 </div>
+
+<script>
+$('#search_git').on('submit', function(e) {
+  if ($('#user_name').val() == '') {
+    e.preventDefault();
+    alert('Please enter a user name to find')
+    return false;
+  }
+});
+</script>

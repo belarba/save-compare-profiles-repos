@@ -5,7 +5,7 @@
         <h4 class="grey_title">Users</h4>
       </div>
       <div class="blocks-list list-panel panel panel-default">
-        <%= form_with url: new_fetch_user_url, local: true, method: :get do |form| %>
+        <%= form_with url: new_fetch_user_url, local: true, method: :get, :html=> {:id => 'search_git'} do |form| %>
           <%= render partial: "search_user", locals: { form: form }%>
         <% end %>
       </div>
