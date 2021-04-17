@@ -1,0 +1,13 @@
+<div class="blocks-list list-panel panel panel-default">
+  <div class="form_content">
+    <div style="text-align: center;">
+      <p><b>Login:</b> <%= link_to user.login, user.html_url, target: '_blank' %></p>
+      <p><b>Name:</b> <%= user.name&.split&.map(&:capitalize)&.join(' ') %></p>
+      <p> <img src=<%= user.avatar_url %> alt=<%= "#{user.login}_profile_picture" %> class="avatar"> </p>
+      <p><b>Type:</b> <%= user.type %></p>
+      <p><b>Public repos:</b> <%= user.public_repos || 0 %></p>
+      <p><b>Followers:</b> <%= user.followers || 0 %></p>
+      <p><b>Following:</b> <%= user.following || 0 %></p>
+    </div>
+  </div>
+</div>

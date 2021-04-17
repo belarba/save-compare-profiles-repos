@@ -10,7 +10,7 @@
           <div style="text-align: center;">
             <% if @code == 200 %>
               <p><b>Login:</b> <%= @repos["login"] %></p>
-              <p><b>Name:</b> <%= @repos["name"].capitalize %></p>
+              <p><b>Name:</b> <%= @repos["name"]&.split&.map(&:capitalize)&.join(' ') %></p>
               <p> <img src=<%= @repos["avatar_url"] %> alt=<%= "#{@repos["login"]}_profile_picture" %> class="avatar"> </p>
             <% else %>
               <p>User not found</p>

@@ -18,7 +18,7 @@
             <% @repos.each do |repo| %>
               <p>
                 <%= check_box_tag 'repos_ids[]', repo.id, false, class: "repo-checkbox" %>
-                <%= link_to "#{repo.user.login.capitalize} - #{repo.name.capitalize}", repo_path(repo) %>
+                <%= link_to "#{repo.user.login.split&.map(&:capitalize)&.join(' ')} - #{repo.name&.split&.map(&:capitalize)&.join(' ')}", repo_path(repo) %>
               </p>
             <% end %>
           </div>

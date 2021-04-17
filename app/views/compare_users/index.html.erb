@@ -1,3 +1,20 @@
-<%= @user1.login%> x <%= @user2.login%>
+<div style="text-align:center">
+<div class="row">
+  <h4 class="grey_title">Profile comparation</h4>
+</div>
 
+<div class="center_presentation">
+  <div class="col-xs-3">
+    <div class="form wrapper">
+      <%= render partial: "users/profile", locals: { user: @user1 }%>
+    </div>
+  </div>
+
+  <div class="col-xs-3">
+    <div class="form wrapper">
+      <%= render partial: "users/profile", locals: { user: @user2 }%>
+    </div>
+  </div>
+</div>
 <%= link_to "Home", root_path, class: 'btn btn-primary new-item no-label' %>
+</div>
