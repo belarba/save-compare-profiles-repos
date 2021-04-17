@@ -3,7 +3,7 @@ Usuário encontrado
 <%= @repos["login"] %>
 <%= @repos["name"] %>
 
-<%= link_to "Save user", users_path(user_data: @repos), method: :post %>
+<%= link_to "Save user", users_path(user_data: @repos), method: :post, class: 'btn btn-primary new-item no-label' %>
 
-<%= link_to "Home", root_path %>
+<%= link_to "Home", root_path, class: 'btn btn-primary new-item no-label' %>
 

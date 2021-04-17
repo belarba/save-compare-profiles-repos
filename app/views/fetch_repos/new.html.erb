@@ -3,7 +3,7 @@ Usuário encontrado
 <% @repos.each do |repo| %>
   <%= repo["name"] %>
 
-  <%= link_to "Save repo", repos_path(repo_data: repo), method: :post %>
+  <%= link_to "Save repo", repos_path(repo_data: repo), method: :post, class: 'btn btn-primary new-item no-label' %>
 <% end %>
 
-<%= link_to "Home", root_path %>
+<%= link_to "Home", root_path, class: 'btn btn-primary new-item no-label' %>

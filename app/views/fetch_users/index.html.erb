@@ -1,7 +1,7 @@
 <%= form_with url: new_fetch_user_url, local: true, method: :get do |form| %>
   <%= form.label :user_name, "Search for:" %>
   <%= form.text_field :user_name %>
-  <%= form.submit "Search" %>
+  <%= form.submit "Search", class: 'btn btn-primary new-item no-label' %>
 <% end %>
 
-<%= link_to "Home", root_path %>
+<%= link_to "Home", root_path, class: 'btn btn-primary new-item no-label' %>

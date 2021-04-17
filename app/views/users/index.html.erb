@@ -1,19 +1,15 @@
 <%= form_with url: compare_users_path, local: true, method: :get, :html=> {:id => 'users_form'} do |form| %>
-<ol>
   <% if @users.count.zero? %>
-  <li>
-    No users added!
-  </li>
+    <p>No users added!</p>
   <% end %>
   <% @users.each do |user| %>
-    <li>
+    <p>
       <%= check_box_tag 'users_ids[]', user.id, false, class: "user-checkbox" %>
       <%= link_to "#{user.login.capitalize}", user_path(user) %>
-    </li>
+    </p>
   <% end %>
-  <%= link_to "Find User", fetch_users_path %>
-</ol>
-<%= form.submit "Compare Users" %>
+  <%= link_to "Find User", fetch_users_path, class: 'btn btn-primary new-item no-label' %>
+  <%= form.submit "Compare Users", class: 'btn btn-primary new-item no-label' %>
 <% end %>
 
 
