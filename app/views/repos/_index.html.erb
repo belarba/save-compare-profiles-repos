@@ -7,7 +7,10 @@
       </li>
     <% end %>
     <% @repos.each do |repo| %>
-      <li><%= check_box_tag 'repos_ids[]', repo.id, false, class: "repo-checkbox" %><%= "#{repo.user.login} - #{repo.name}" %></li>
+      <li>
+        <%= check_box_tag 'repos_ids[]', repo.id, false, class: "repo-checkbox" %>
+        <%= link_to "#{repo.user.login.capitalize} - #{repo.name.capitalize}", repo_path(repo) %>
+      </li>
     <% end %>
     <%= link_to "Find Repo", fetch_repos_path %>
   </ol>

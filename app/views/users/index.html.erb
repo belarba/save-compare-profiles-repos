@@ -6,7 +6,10 @@
   </li>
   <% end %>
   <% @users.each do |user| %>
-  <li><%= check_box_tag 'users_ids[]', user.id, false, class: "user-checkbox" %><%= user.login %></li>
+    <li>
+      <%= check_box_tag 'users_ids[]', user.id, false, class: "user-checkbox" %>
+      <%= link_to "#{user.login.capitalize}", user_path(user) %>
+    </li>
   <% end %>
   <%= link_to "Find User", fetch_users_path %>
 </ol>

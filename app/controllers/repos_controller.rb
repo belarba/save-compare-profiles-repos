@@ -20,4 +20,8 @@ class ReposController < ApplicationController
     @repo.save
     redirect_to controller: :users, action: :index
   end
+
+  def show
+    @user = Repo.find_by_id(params[:id])
+  end
 end
