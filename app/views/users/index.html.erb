@@ -14,17 +14,5 @@
   <%= form.submit "Compare Users" %>
 <% end %>
 
-<%= form_with url: compare_repos_path, local: true, method: :get do |form| %>
-  <ol>
-    <% if @repos.count.zero? %>
-      <li>
-        No repos added!
-      </li>
-    <% end %>
-    <% @repos.each do |repo| %>
-      <li><%= check_box_tag 'repos_ids[]', repo.id %><%= "#{repo.user.login} - #{repo.name}" %></li>
-    <% end %>
-    <%= link_to "Find Repo", fetch_repos_path %>
-  </ol>
-  <%= form.submit "Compare Repos" %>
-<% end %>
+
+<%= render partial: "repos/index", locals: { repos: @repos } %>
