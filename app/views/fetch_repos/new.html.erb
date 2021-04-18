@@ -12,7 +12,7 @@
             <% @repos.each do |repo| %>
               <div class="buttons_row">
                 <p><b>Repository name:</b> <%= repo["name"] %></p>
-                <%= link_to "Save repo", repos_path(repo_data: repo), method: :post, class: 'btn btn-primary new-item no-label' %>
+                <%= button_to "Save repo", repos_path(repo_data: repo), method: :post, class: 'btn btn-primary new-item no-label' %>
               </div>
             <% end %>
           <% else %>

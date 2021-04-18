@@ -16,7 +16,7 @@
               <p>User not found</p>
             <% end %>
             <div class="buttons_row">
-              <%= link_to "Save user", users_path(user_data: @repos), method: :post, class: 'btn btn-primary new-item no-label' if @code == 200 %>
+              <%= button_to "Save user", users_path(user_data: @repos), method: :post, class: 'btn btn-primary new-item no-label' if @code == 200 %>
               <%= link_to "Back", :back, class: 'btn btn-primary new-item no-label' %>
               <%= link_to "Home", root_path, class: 'btn btn-primary new-item no-label' %>
             </div>
