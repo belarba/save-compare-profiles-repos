@@ -1,24 +1,35 @@
-# README
+##### Prerequisites
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The setups steps expect following tools installed on the system.
 
-Things you may want to cover:
+- Github
+- Ruby 2.6.6
+- Rails 6.0.3
+- PostgreSQL
 
-* Ruby version
 
-* System dependencies
+##### 1. Check out the repository
 
-* Configuration
+```bash
+git clone git@github.com:belarba/save-compare-profiles-repos.git
+```
 
-* Database creation
+##### 2. Create and setup the database
 
-* Database initialization
+Run the following commands to create and setup the database.
 
-* How to run the test suite
+```ruby
+bundle exec rake db:create
+bundle exec rake db:migration
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+##### 3. Start the Rails server
 
-* Deployment instructions
+You can start the rails server using the command given below.
 
-* ...
+```ruby
+bundle exec rails s
+```
+
+And now you can visit the site with the URL http://localhost:3000
+This project is also online on heroku: https://save-compare-profiles.herokuapp.com/
