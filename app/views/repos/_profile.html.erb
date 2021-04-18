@@ -3,10 +3,18 @@
     <div style="text-align: center;">
       <p><b>Owner:</b> <%= link_to repo.user.login, repo.user.html_url, target: '_blank' %></p>
       <p><b>Name:</b> <%= link_to repo.name, repo.html_url, target: '_blank' %></p>
-      <p><b>Size:</b> <%= repo.size %></p>
-      <p><b>Stars:</b> <%= repo.stargazers_count %></p>
-      <p><b>Watchers:</b> <%= repo.watchers %></p>
-      <p><b>Forks:</b> <%= repo.forks %></p>
+      <p class="<%= "high_value" if repo_to_compare.present? && repo.size.to_i > repo_to_compare.size.to_i %>">
+        <b>Size:</b> <%= repo.size.to_i %>
+      </p>
+      <p class="<%= "high_value" if repo_to_compare.present? && repo.stargazers_count.to_i > repo_to_compare.stargazers_count.to_i %>">
+        <b>Stars:</b> <%= repo.stargazers_count.to_i %>
+      </p>
+      <p class="<%= "high_value" if repo_to_compare.present? && repo.watchers.to_i > repo_to_compare.watchers.to_i %>">
+        <b>Watchers:</b> <%= repo.watchers.to_i %>
+      </p>
+      <p class="<%= "high_value" if repo_to_compare.present? && repo.forks.to_i > repo_to_compare.forks.to_i %>">
+        <b>Forks:</b> <%= repo.forks.to_i %>
+      </p>
       <p><b>Language:</b> <%= repo.language %></p>
       <p><b>License:</b> <%= repo.license_name %></p>
       <p><b>Description:</b> <%= repo.description %></p>

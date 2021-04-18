@@ -6,13 +6,13 @@
   <div class="center_presentation">
     <div class="col-xs-3">
       <div class="form wrapper">
-        <%= render partial: "repos/profile", locals: { repo: @repo1 }%>
+        <%= render partial: "repos/profile", locals: { repo: @repo1, repo_to_compare: @repo2 }%>
       </div>
     </div>
 
     <div class="col-xs-3">
       <div class="form wrapper">
-        <%= render partial: "repos/profile", locals: { repo: @repo2 }%>
+        <%= render partial: "repos/profile", locals: { repo: @repo2, repo_to_compare: @repo1}%>
       </div>
     </div>
   </div>

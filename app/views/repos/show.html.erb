@@ -4,7 +4,7 @@
       <h4 class="grey_title">Repo info</h4>
     </div>
     <div class="form wrapper" style="text-align:center">
-      <%= render partial: "profile", locals: { repo: @repo }%>
+      <%= render partial: "profile", locals: { repo: @repo, repo_to_compare: nil }%>
       <%= link_to "Home", root_path, class: 'btn btn-primary new-item no-label' %>
     </div>
   </div>

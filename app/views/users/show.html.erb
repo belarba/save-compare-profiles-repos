@@ -4,7 +4,7 @@
       <h4 class="grey_title">Profile info</h4>
     </div>
     <div class="form wrapper" style="text-align:center">
-      <%= render partial: "profile", locals: { user: @user }%>
+      <%= render partial: "profile", locals: { user: @user, user_to_compare: nil }%>
       <%= link_to "Home", root_path, class: 'btn btn-primary new-item no-label' %>
     </div>
   </div>

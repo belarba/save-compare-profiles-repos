@@ -5,9 +5,15 @@
       <p><b>Name:</b> <%= user.name&.split&.map(&:capitalize)&.join(' ') %></p>
       <p> <img src=<%= user.avatar_url %> alt=<%= "#{user.login}_profile_picture" %> class="avatar"> </p>
       <p><b>Type:</b> <%= user.type %></p>
-      <p><b>Public repos:</b> <%= user.public_repos || 0 %></p>
-      <p><b>Followers:</b> <%= user.followers || 0 %></p>
-      <p><b>Following:</b> <%= user.following || 0 %></p>
+      <p class="<%= "high_value" if user_to_compare.present? && user.public_repos.to_i > user_to_compare.public_repos.to_i %>">
+        <b>Public repos:</b> <%= user.public_repos.to_i %>
+      </p>
+      <p class="<%= "high_value" if user_to_compare.present? && user.followers.to_i > user_to_compare.followers.to_i %>">
+        <b>Followers:</b> <%= user.followers.to_i %>
+      </p>
+      <p class="<%= "high_value" if user_to_compare.present? && user.following.to_i > user_to_compare.following.to_i %>">
+        <b>Following:</b> <%= user.following.to_i %>
+      </p>
     </div>
   </div>
 </div>

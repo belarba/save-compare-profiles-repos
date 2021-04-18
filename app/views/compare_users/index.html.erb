@@ -6,13 +6,13 @@
   <div class="center_presentation">
     <div class="col-xs-3">
       <div class="form wrapper">
-        <%= render partial: "users/profile", locals: { user: @user1 }%>
+        <%= render partial: "users/profile", locals: { user: @user1, user_to_compare: @user2 }%>
       </div>
     </div>
 
     <div class="col-xs-3">
       <div class="form wrapper">
-        <%= render partial: "users/profile", locals: { user: @user2 }%>
+        <%= render partial: "users/profile", locals: { user: @user2, user_to_compare: @user1 }%>
       </div>
     </div>
   </div>
